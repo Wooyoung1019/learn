@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+ 
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+ 
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<meta charset="UTF-8">
+		<title>东东社保计算器</title>
+		<script>
+			function cals() {
+				var salary = document.getElementById("salary").value;
+				var salaryNum = parseInt(salary);	//薪水
+				//养老
+				var oldPeople = salaryNum * 0.08;
+				var oldCompany = salaryNum * 0.2;
+				//医疗
+				var medicalPeople = salaryNum * 0.02;
+				var medicalCompany = salaryNum * 0.06;
+				//失业
+				var unemployPeople = salaryNum * 0.005;
+				var unemployCompany = salaryNum * 0.015;
+				//工伤
+				var injuryPeople = salaryNum * 0;
+				var injuryCompany = salaryNum * 0.005;
+				//生育
+				var fertilitPeople = salaryNum * 0;
+				var fertilitCompany = salaryNum * 0.005;
+				//公积金
+				var publicPeople = salary * 0.12;
+				var publicCompany = salary * 0.12;
+				//合计
+				var totalPeople = oldPeople + medicalPeople + unemployPeople + injuryPeople + fertilitPeople + publicPeople;
+				var totalCompany = oldCompany + medicalCompany + unemployCompany + injuryCompany + fertilitCompany + publicCompany; 
+				//总额
+				var total = totalPeople + totalCompany;
+				
+				document.getElementById("oldPeople").innerHTML = oldPeople;
+				document.getElementById("oldCompany").innerHTML = oldCompany;
+				document.getElementById("medicalPeople").innerHTML = medicalPeople;
+				document.getElementById("medicalCompany").innerHTML = medicalCompany;
+				document.getElementById("unemployPeople").innerHTML = unemployPeople;
+				document.getElementById("unemployCompany").innerHTML = unemployCompany;
+				document.getElementById("injuryPeople").innerHTML = injuryPeople;
+				document.getElementById("injuryCompany").innerHTML = injuryCompany;
+				document.getElementById("fertilitPeople").innerHTML = fertilitPeople;
+				document.getElementById("fertilitCompany").innerHTML = fertilitCompany;
+				document.getElementById("publicPeople").innerHTML = publicPeople;
+				document.getElementById("publicCompany").innerHTML = publicCompany;
+				document.getElementById("totalPeople").innerHTML = totalPeople;
+				document.getElementById("totalCompany").innerHTML = totalCompany;
+				document.getElementById("total").innerHTML = total;
+			}
+		</script>
+	</head>
+	<body class="text-center">
+		<div id="logo" class="container">
+			<img class="img-thumbnail img-circle" src="images/nuc.png" width="100px" height="100px"/>
+			<table class="table table-striped table-bordered">
+				<tr>
+					<td>工资</td>
+					<td colspan="3">
+						<input type="text" id="salary" placeholder="请输入个人工资" class="form-control"/>
+					</td>
+					<td>
+						<button onclick="cals()" class="btn btn-block btn-danger">计算</button>
+					</td>
+				</tr>
+				<tr class="bg-primary">
+					<td>险种</td>
+					<td>个人%</td>
+					<td>个人</td>
+					<td>公司%</td>
+					<td>公司</td>
+				</tr>
+				<tr>
+					<td>养老</td>
+					<td>8%</td>
+					<td id="oldPeople"></td>
+					<td>20%</td>
+					<td id="oldCompany"></td>
+				</tr>
+				<tr>
+					<td>医疗</td>
+					<td>2%</td>
+					<td id="medicalPeople"></td>
+					<td>6%</td>
+					<td id="medicalCompany"></td>
+				</tr>
+				<tr>
+					<td>失业</td>
+					<td>0.5%</td>
+					<td id="unemployPeople"></td>
+					<td>1.5%</td>
+					<td id="unemployCompany"></td>
+				</tr>
+				<tr>
+					<td>工伤</td>
+					<td>0%</td>
+					<td id="injuryPeople"></td>
+					<td>0.5%</td>
+					<td id="injuryCompany"></td>
+				</tr>
+				<tr>
+					<td>生育</td>
+					<td>0%</td>
+					<td id="fertilitPeople"></td>
+					<td>0.8%</td>
+					<td id="fertilitCompany"></td>
+				</tr>
+				<tr>
+					<td>公积金</td>
+					<td>12%</td>
+					<td id="publicPeople"></td>
+					<td>12%</td>
+					<td id="publicCompany"></td>
+				</tr>
+				<tr>
+					<td>合计</td>
+					<td>个人合计</td>
+					<td id="totalPeople"></td>
+					<td>公司合计</td>
+					<td id="totalCompany"></td>
+				</tr>
+				<tr>
+					<td>总额</td>
+					<td colspan="4" id="total"></td>
+				</tr>
+			</table>
+			<h6>开发者：中北大学软件学院 软件工程专业 <br />赵旭东 2013041525</h6>
+		</div>
+	</body>
+</html>
