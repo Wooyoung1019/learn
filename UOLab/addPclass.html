@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>录入公开课</title>
+		<link href="css/style.css" rel="stylesheet" type="text/css" />
+		<link href="css/select.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery.idTabs.min.js"></script>
+		<script type="text/javascript" src="js/select-ui.min.js"></script>
+		<script type="text/javascript" src="editor/kindeditor.js"></script>
+		<link href="http://cdn.bootcss.com/twitter-bootstrap/2.2.2/css/bootstrap.min.css" rel="stylesheet">
+		<link href="http://www.bootcss.com/p/bootstrap-datetimepicker/bootstrap-datetimepicker/css/datetimepicker.css" rel="stylesheet">
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+		<script src="http://www.bootcss.com/p/bootstrap-datetimepicker/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+
+		<script type="text/javascript">
+			KE.show({
+				id: 'content7',
+				cssPath: './index.css'
+			});
+			KE.show({
+				id: 'content8',
+				cssPath: './index.css'
+			});
+		</script>
+		<script>
+			$(function() {
+				$("#datetimepicker").datetimepicker({
+					// 设置选择后关闭
+					autoclose: true,
+				});
+			});
+		</script>
+		<script type="text/javascript">
+			$(document).ready(function(e) {
+				$(".select1").uedSelect({
+					width: 345
+				});
+				$(".select2").uedSelect({
+					width: 167
+				});
+				$(".select3").uedSelect({
+					width: 100
+				});
+			});
+		</script>
+		<script>
+			function checkTech() {
+				var techpro = document.getElementById("techpro").value;
+				var techproTip = document.getElementById("techproTip");
+				var reg = /^[\u4e00-\u9fa5a-zA-Z]{1,50}$/;
+				if(!reg.test(techpro)) {
+					techproTip.innerHTML = "<img src='images/wrong.jpg'/> 未知格式";
+					techproTip.style = "color:red";
+				} else {
+					techproTip.innerHTML = "";
+				}
+			}
+			function checkSpeach() {
+				var spechname = document.getElementById("spechname").value;
+				var spechnameTip = document.getElementById("spechnameTip");
+				var reg = /^[\u4e00-\u9fa5]{2,4}$/;
+				if(!reg.test(spechname)) {
+					spechnameTip.innerHTML = "<img src='images/wrong.jpg'/> 姓名格式错误";
+					spechnameTip.style = "color:red";
+				} else {
+					spechnameTip.innerHTML = "";
+				}
+			}
+			function checkOrgnize() {
+				var orgnizename = document.getElementById("orgnizename").value;
+				var orgnizenameTip = document.getElementById("orgnizenameTip");
+				var reg = /^[\u4e00-\u9fa5]{2,4}$/;
+				if(!reg.test(orgnizename)) {
+					orgnizenameTip.innerHTML = "<img src='images/wrong.jpg'/> 姓名格式错误";
+					orgnizenameTip.style = "color:red";
+				} else {
+					orgnizenameTip.innerHTML = "";
+				}
+			}
+			
+			function checkInnova() {
+				var innovaNum = document.getElementById("innovaNum").value;
+				var innovaNumTip = document.getElementById("innovaNumTip");
+				var reg = /^[0-9]$/;
+				if(!reg.test(innovaNum)) {
+					innovaNumTip.innerHTML = "<img src='images/wrong.jpg'/> 未知错误";
+					innovaNumTip.style = "color:red";
+				} else {
+					innovaNumTip.innerHTML = "";
+				}
+			}
+
+			function checkNum() {
+				var peopleNum = document.getElementById("peopleNum").value;
+				var peopleNumTip = document.getElementById("peopleNumTip");
+				var reg = /^[0-9]$/;
+				if(!reg.test(peopleNum)) {
+					peopleNumTip.innerHTML = "<img src='images/wrong.jpg'/> 请输入参加人数";
+					peopleNumTip.style = "color:red";
+				} else {
+					peopleNumTip.innerHTML = "";
+				}
+			}
+
+			function checkPlace() {
+				var placename = document.getElementById("placename").value;
+				var placenameTip = document.getElementById("placenameTip");
+				var reg = /^[\u4e00-\u9fa5]{5,20}$/;
+				if(!reg.test(placename)) {
+					placenameTip.innerHTML = "<img src='images/wrong.jpg'/> 籍贯格式不正确";
+					placenameTip.style = "color:red";
+				} else {
+					placenameTip.innerHTML = "";
+				}
+			}
+
+			function checkUsername() {
+				var uname = document.getElementById("username").value;
+				var unameTip = document.getElementById("usernameTip");
+				var reg = /^[a-zA-Z]{1}[a-zA-Z0-9]{2,14}$/;
+				if(!reg.test(uname)) {
+					unameTip.innerHTML = "<img src='images/wrong.jpg'/> 用户户名不合法！";
+					unameTip.style = "color:red";
+				} else {
+					unameTip.innerHTML = "";
+				}
+			}
+
+			function checkPassname() {
+				var pname = document.getElementById("passname").value;
+				var pnameTip = document.getElementById("passnameTip");
+				var reg = /^[a-zA-Z0-9]{6,20}$/;
+				if(!reg.test(pname)) {
+					pnameTip.innerHTML = "<img src='images/wrong.jpg'/> 密码格式错误！";
+					pnameTip.style = "color:red";
+				} else {
+					pnameTip.innerHTML = "";
+				}
+			}
+
+			function checkTel() {
+				var telNum = document.getElementById("telNum").value;
+				var telTip = document.getElementById("telTip");
+				var reg = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+				if(!reg.test(telNum)) {
+					telTip.innerHTML = "<img src='images/wrong.jpg'/> 错误的手机号码";
+					telTip.style = "color:red";
+				} else {
+					telTip.innerHTML = "";
+				}
+			}
+
+			function checkQQ() {
+				var qqNum = document.getElementById("qqNum").value;
+				var qqTip = document.getElementById("qqTip");
+				var reg = /[1-9][0-9]{4,}/;
+				if(!reg.test(qqNum)) {
+					qqTip.innerHTML = "<img src='images/wrong.jpg'/> QQ号码格式错误";
+					qqTip.style = "color:red";
+				} else {
+					qqTip.innerHTML = "";
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+
+		<div class="place">
+			<span>位置：</span>
+			<ul class="placeul">
+				<li>
+					<a href="default.html" target="rightFrame" title="首页">首页</a>
+				</li>
+				<li>
+					<a href="addPclass.html.html" target="rightFrame" title="录入公开课">录入公开课</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="formbody">
+
+			<div id="tab1" class="tabson">
+				<ul class="forminfo">
+					<li>
+						<label>日期<b>*</b></label>
+						<input placeholder="请选择日期" size="20" type="text" value="" id="datetimepicker">
+					</li>
+					<li>
+						<label>技术专题<b>*</b></label>
+						<input placeholder="请输入技术专题" onblur="checkTech()" id="techpro" name="techPro" type="text" class="dfinput" style="width:345px;" />
+						<i id="techproTip"></i>
+					</li>
+					<li>
+						<label>主讲人<b>*</b></label>
+						<input onblur="checkSpeach()" id="spechname" placeholder="请输入主讲人姓名" name="spechName" type="text" class="dfinput" style="width:345px;" />
+						<i id="spechnameTip"></i>
+					</li>
+					<li>
+						<label>组织人<b>*</b></label>
+						<input onblur="checkOrgnize()" id="orgnizename" placeholder="请输入组织人姓名" name="orgnizeName" type="text" class="dfinput" style="width:345px;" />
+						<i id="orgnizenameTip"></i>
+					</li>\
+					<li>
+						<label>说明<b>*</b></label>
+						<textarea id="content8" name="content" style="width:700px;height:150px;visibility:hidden;"></textarea>
+					</li>
+					<li>
+						<label>方式<b>*</b></label><cite><input name="role" type="radio" value="" checked="checked" />   线下&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input name="role" type="radio" value="" />   直播&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input name="role" type="radio" value="" />   录课</cite></li>
+					<li>
+						<label>创新学分值<b>*</b></label>
+						<input onblur="checkInnova()" id="innovaNum" placeholder="请输入创新学分值(0-9)" name="innovaNum" type="text" class="dfinput" style="width:345px;" />
+						<i id="innovaNumTip"></i>
+					</li>
+					<li>
+						<label>参加人数<b>*</b></label>
+						<input onblur="checkNum()" id="peopleNum" placeholder="请输入参加人数" name="peopleNum" type="text" class="dfinput" style="width:345px;" />
+						<i id="peopleNumTip"></i>
+					</li>
+					<li><label>备注<b>*</b></label>
+						<textarea id="content7" name="content" style="width:700px;height:250px;visibility:hidden;"></textarea>
+					</li>
+
+					<li><label>&nbsp;</label><a href="default.html" target="rightFrame"><input name="" type="button" class="btn" value="提交" /></a></li>
+				</ul>
+
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			$("#usual1 ul").idTabs();
+		</script>
+
+		<script type="text/javascript">
+			$('.tablelist tbody tr:odd').addClass('odd');
+		</script>
+
+		</div>
+
+	</body>
+
+</html>

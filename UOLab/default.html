@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>主栏</title>
+		<link href="css/style.css" rel="stylesheet" type="text/css" />
+		
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<!--<script type="text/javascript" src="js/jsapi.js"></script> end-->
+		
+		
+		<script type="text/javascript" src="js/jquery.gvChart-1.0.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.ba-resize.min.js"></script>
+
+		<script type="text/javascript">
+			gvChartInit();
+			jQuery(document).ready(function() {
+
+				jQuery('#myTable5').gvChart({
+					chartType: 'PieChart',
+					gvSettings: {
+						vAxis: {
+							title: 'No of players'
+						},
+						hAxis: {
+							title: 'Month'
+						},
+						width: 650,
+						height: 250
+					}
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+
+		<div class="place">
+			<span>位置：</span>
+			<ul class="placeul">
+				<li>
+					<a href="default.html" target="rightFrame" title="首页">首页</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="mainbox">
+
+			<div class="mainleft">
+
+				<div class="leftinfo">
+					<div class="listtitle">
+						<a href="#" class="more1">更多</a>中北大学</div>
+					<div class="leftinfo1">
+						<a href="https://www.baidu.com/s?ie=UTF-8&wd=%E4%B8%AD%E5%8C%97%E5%A4%A7%E5%AD%A6"><img id="zbdxPicture" src="images/zbdx.jpg" /></a>
+					</div>
+				</div>
+				<!--leftinfo end-->
+			</div>
+			<!--mainleft end-->
+
+			<div class="mainright">
+
+				<div class="dflist">
+					<div class="listtitle">
+						<a href="#" class="more1">更多</a>最新信息</div>
+					<ul class="newlist">
+						<li>
+							<a class="myHtml" href="https://wooyoung1019.github.io/learn/">Zhaoxd在github上搭建的网站</a>
+						</li>
+						<li> 
+							<a class="myHtml" href="https://wooyoung1019.github.io/learn/receive.html">Zhaoxd做的的第一个网页</a>
+						</li>
+						<li> 
+							<a class="myHtml" href="https://wooyoung1019.github.io/learn/中北大学.html">Zhaoxd版中北大学登录界面</a>
+						</li>
+						<li> 
+							<a class="myHtml" href="https://wooyoung1019.github.io/learn/calc-plus.html">Zhaoxd版社保计算器</a>
+						</li>
+						<li> 
+							<a class="myHtml" href="https://wooyoung1019.github.io/learn/bank-plus.html">Zhaoxd版银行利息计算器</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="dflist1">
+					<div class="listtitle">
+						<a href="#" class="more1">更多</a>常用工具</div>
+					<ul class="tooli">
+						<li><span><a href="addUsers.html" target="rightFrame" title="addUsers.html"><img src="images/leftico01.png" /></a></span>
+							<p>
+								<a href="addUsers.html" target="rightFrame" title="addUsers.html">添加用户</a>
+							</p>
+						</li>
+						<li><span><a href="addDept.html" target="rightFrame" title="addDept.html"><img src="images/leftico02.png" /></a></span>
+							<p>
+								<a href="addDept.html" target="rightFrame" title="addDept.html">添加院系</a>
+							</p>
+						</li>
+						<li><span><a href="addMember.html" target="rightFrame" title="addMember.html"><img src="images/leftico03.png" /></a></span>
+							<p>
+								<a href="addMember.html" target="rightFrame" title="addMember.html">添加成员</a>
+							</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--mainright end-->
+
+		</div>
+		<!--mainbox end-->
+
+	</body>
+	<script type="text/javascript">
+		setWidth();
+		$(window).resize(function() {
+			setWidth();
+		});
+
+		function setWidth() {
+			var width = ($('.leftinfos').width() - 12) / 2;
+			$('.infoleft,.inforight').width(width);
+		}
+	</script>
+
+</html>

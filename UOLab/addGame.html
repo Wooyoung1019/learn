@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>参赛信息录入</title>
+		<link href="css/style.css" rel="stylesheet" type="text/css" />
+		<link href="css/select.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery.idTabs.min.js"></script>
+		<script type="text/javascript" src="js/select-ui.min.js"></script>
+		<script type="text/javascript" src="editor/kindeditor.js"></script>
+		
+
+		<script type="text/javascript">
+			KE.show({
+				id: 'content7',
+				cssPath: './index.css'
+			});
+		</script>
+
+		<script type="text/javascript">
+			$(document).ready(function(e) {
+				$(".select1").uedSelect({
+					width: 345
+				});
+				$(".select2").uedSelect({
+					width: 167
+				});
+				$(".select3").uedSelect({
+					width: 100
+				});
+			});
+		</script>
+		<script>
+			function checkName() {
+				var realname=document.getElementById("realname").value;
+				var realnameTip=document.getElementById("realnameTip");
+				var reg = /^[\u4e00-\u9fa5]{1,10}$/;
+				if (!reg.test(realname)) {
+					realnameTip.innerHTML="<img src='images/wrong.jpg'/> 未知错误";
+					realnameTip.style="color:red";
+				} else {
+					realnameTip.innerHTML="";
+				}
+			}
+			function checkClass() {
+				var classNum=document.getElementById("classNum").value;
+				var classTip=document.getElementById("classTip");
+				var reg = /^[0-9]{10}$/;
+				if (!reg.test(classNum)) {
+					classTip.innerHTML="<img src='images/wrong.jpg'/> 学号格式不正确";
+					classTip.style="color:red";
+				} else {
+					classTip.innerHTML="";
+				}
+			}
+			function checkGrade() {
+				var grade=document.getElementById("grade").value;
+				var gradeTip=document.getElementById("gradeTip");
+				var reg = /^[1-2][0-9]{3}$/;
+				if (!reg.test(grade)) {
+					gradeTip.innerHTML="<img src='images/wrong.jpg'/> 请按照正确的格式输入";
+					gradeTip.style="color:red";
+				} else {
+					gradeTip.innerHTML="";
+					document.getElementById("grade").value+="年度";
+				}
+			}
+			function checkPlace() {
+				var placename=document.getElementById("placename").value;
+				var placenameTip=document.getElementById("placenameTip");
+				var reg = /^[\u4e00-\u9fa5]{5,20}$/;
+				if (!reg.test(placename)) {
+					placenameTip.innerHTML="<img src='images/wrong.jpg'/> 籍贯格式不正确";
+					placenameTip.style="color:red";
+				} else {
+					placenameTip.innerHTML="";
+				}
+			}
+			function checkLeader() {
+				var leadername = document.getElementById("leadername").value;
+				var leadernameTip = document.getElementById("leadernameTip");
+				var reg = /^[\u4e00-\u9fa5]{2,6}$/;
+				if (!reg.test(leadername)) {
+					leadernameTip.innerHTML="<img src='images/wrong.jpg'/> 名字格式错误！";
+					leadernameTip.style="color:red";
+				} else {
+					leadernameTip.innerHTML = "";
+				}
+			}
+			function checkTeacher() {
+				var teachername = document.getElementById("teachername").value;
+				var teachernameTip = document.getElementById("teachernameTip");
+				var reg = /^[\u4e00-\u9fa5]{2,6}$/;
+				if (!reg.test(teachername)) {
+					teachernameTip.innerHTML="<img src='images/wrong.jpg'/> 名字格式错误！";
+					teachernameTip.style="color:red";
+				} else {
+					teachernameTip.innerHTML = "";
+				}
+			}
+			function checkTitle() {
+				var titlename = document.getElementById("titlename").value;
+				var titlenameTip = document.getElementById("titlenameTip");
+				var reg = /^[\u4e00-\u9fa5a-zA-Z]{2,30}$/;
+				if (!reg.test(titlename)) {
+					titlenameTip.innerHTML="<img src='images/wrong.jpg'/> 格式错误！";
+					titlenameTip.style="color:red";
+				} else {
+					titlenameTip.innerHTML="";
+				}
+			}
+			function checkTel() {
+				var telNum = document.getElementById("telNum").value;
+				var telTip = document.getElementById("telTip");
+				var reg = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+				if (!reg.test(telNum)) {
+					telTip.innerHTML = "<img src='images/wrong.jpg'/> 错误的手机号码";
+					telTip.style = "color:red";
+				} else {
+					telTip.innerHTML = "";
+				}
+			}
+			function checkQQ() {
+				var qqNum = document.getElementById("qqNum").value;
+				var qqTip = document.getElementById("qqTip");
+				var reg = /[1-9][0-9]{4,}/;
+				if (!reg.test(qqNum)) {
+					qqTip.innerHTML = "<img src='images/wrong.jpg'/> QQ号码格式错误";
+					qqTip.style = "color:red";
+				} else {
+					qqTip.innerHTML = "";
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+
+		<div class="place">
+			<span>位置：</span>
+			<ul class="placeul">
+				<li>
+					<a href="default.html" target="rightFrame" title="首页">首页</a>
+				</li>
+				<li>
+					<a href="addGame.html" target="rightFrame" title="参赛信息录入">参赛信息录入</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="formbody">
+
+			<div id="tab1" class="tabson">
+				<ul class="forminfo">
+					<li>
+						<label>竞赛类别<b>*</b></label>
+						<input onblur="checkName()" id="realname" placeholder="请输入竞赛类别" name="userName" type="text" class="dfinput" style="width:345px;" />
+						<i id="realnameTip"></i>
+					</li>
+					<li>
+						<label>年度<b>*</b></label>
+						<input onblur="checkGrade()" id="grade" placeholder="请输入年级(如：2020)" name="Grade" type="text" class="dfinput" style="width:345px;" />
+						<i id="gradeTip"></i>
+					</li>
+					<li>
+						<label>题目<b>*</b></label>
+						<input onblur="checkTitle()" id="titlename" placeholder="请输入竞赛题目" name="profeName" type="text" class="dfinput" style="width:345px;" />
+						<i id="titlenameTip"></i>
+					</li>
+					<li>
+						<label>组长<b>*</b></label>
+						<input onblur="checkLeader()" id="leadername"  placeholder="请输入组长姓名" name="leadername" type="text" class="dfinput" style="width:345px;" />
+						<i id="leadernameTip"></i>
+					</li>
+					<li>
+						<label>获奖等级<b>*</b></label>
+						<div class="vocation">
+							<select class="select1">
+								<option selected="selected">无</option>
+								<option value="01">特等奖</option>
+								<option value="02">一等奖</option>
+								<option value="03">二等奖</option>
+								<option value="04">三等奖</option>
+								<option value="">优秀奖</option>
+							</select>
+						</div>
+					</li>
+					<li>
+						<label>指导老师<b>*</b></label>
+						<input onblur="checkTeacher()()" id="teachername"  placeholder="请输入组长姓名" name="teachername" type="text" class="dfinput" style="width:345px;" />
+						<i id="teachernameTip"></i>
+					</li>
+					
+					<li><label>&nbsp;<a href="default.html" target="rightFrame"></label><input name="" type="button" class="btn" value="提交" /></a></li>
+				</ul>
+
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			$("#usual1 ul").idTabs();
+		</script>
+
+		<script type="text/javascript">
+			$('.tablelist tbody tr:odd').addClass('odd');
+		</script>
+
+		</div>
+
+	</body>
+
+</html>
